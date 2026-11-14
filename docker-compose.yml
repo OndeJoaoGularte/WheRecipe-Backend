@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: wherecipe-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: wherecipe
+      POSTGRES_PASSWORD: wherecipe
+      POSTGRES_DB: wherecipe
+    ports:
+      - '5432:5432'
+    volumes:
+      - wherecipe_pg:/var/lib/postgresql/data
+
+  typesense:
+    image: typesense/typesense:27.1
+    container_name: wherecipe-typesense
+    restart: unless-stopped
+    environment:
+      TYPESENSE_DATA_DIR: /data
+      TYPESENSE_API_KEY: wherecipe-typesense-key
+      TYPESENSE_ENABLE_CORS: 'true'
+    command: ['--data-dir', '/data', '--api-key', 'wherecipe-typesense-key', '--enable-cors']
+    ports:
+      - '8108:8108'
+    volumes:
+      - wherecipe_typesense:/data
+
+volumes:
+  wherecipe_pg:
+  wherecipe_typesense:
