@@ -8,18 +8,7 @@ import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
 export class AuthAccessTokenSchema extends BaseModel {
-  static $columns = [
-    'abilities',
-    'createdAt',
-    'expiresAt',
-    'hash',
-    'id',
-    'lastUsedAt',
-    'name',
-    'tokenableId',
-    'type',
-    'updatedAt',
-  ] as const
+  static $columns = ['abilities', 'createdAt', 'expiresAt', 'hash', 'id', 'lastUsedAt', 'name', 'tokenableId', 'type', 'updatedAt'] as const
   $columns = AuthAccessTokenSchema.$columns
   @column()
   declare abilities: string
@@ -70,15 +59,7 @@ export class IngredientFamilySchema extends BaseModel {
 }
 
 export class IngredientSchema extends BaseModel {
-  static $columns = [
-    'aliases',
-    'categoryId',
-    'createdAt',
-    'familyId',
-    'id',
-    'name',
-    'updatedAt',
-  ] as const
+  static $columns = ['aliases', 'categoryId', 'createdAt', 'familyId', 'id', 'name', 'updatedAt'] as const
   $columns = IngredientSchema.$columns
   @column()
   declare aliases: any | null
@@ -114,16 +95,7 @@ export class PantryItemSchema extends BaseModel {
 }
 
 export class RecipeIngredientSchema extends BaseModel {
-  static $columns = [
-    'createdAt',
-    'id',
-    'ingredientRef',
-    'optional',
-    'quantity',
-    'recipeId',
-    'sortOrder',
-    'updatedAt',
-  ] as const
+  static $columns = ['createdAt', 'id', 'ingredientRef', 'optional', 'quantity', 'recipeId', 'sortOrder', 'updatedAt'] as const
   $columns = RecipeIngredientSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -144,19 +116,7 @@ export class RecipeIngredientSchema extends BaseModel {
 }
 
 export class RecipeSchema extends BaseModel {
-  static $columns = [
-    'cookTimeMinutes',
-    'createdAt',
-    'description',
-    'id',
-    'nutrition',
-    'prepTimeMinutes',
-    'servings',
-    'steps',
-    'tags',
-    'title',
-    'updatedAt',
-  ] as const
+  static $columns = ['cookTimeMinutes', 'createdAt', 'description', 'id', 'nutrition', 'prepTimeMinutes', 'servings', 'steps', 'tags', 'title', 'updatedAt'] as const
   $columns = RecipeSchema.$columns
   @column()
   declare cookTimeMinutes: number
